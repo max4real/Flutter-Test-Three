@@ -6,10 +6,9 @@ import 'package:get/get.dart';
 class VServeryPage1 extends StatelessWidget {
   VServeryPage1({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-      ServeryHomeController controller = Get.find();
+    ServeryHomeController controller = Get.find();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.greenAccent,
@@ -33,11 +32,14 @@ class VServeryPage1 extends StatelessWidget {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => VSurveryPage2()));
             },
-            label: const Text("Next",style: TextStyle(
+            label: const Text(
+              "Next",
+              style: TextStyle(color: Colors.green, fontSize: 18),
+            ),
+            icon: const Icon(
+              Icons.arrow_forward_rounded,
               color: Colors.green,
-              fontSize: 18
-            ),),
-            icon: const Icon(Icons.arrow_forward_rounded,color: Colors.green,),
+            ),
             iconAlignment: IconAlignment.end,
           ),
         ],
@@ -48,7 +50,7 @@ class VServeryPage1 extends StatelessWidget {
   int? selectedRadio = 1;
 
   Widget makeRadio() {
-              ServeryHomeController controller = Get.find();
+    ServeryHomeController controller = Get.find();
     return Padding(
       padding: const EdgeInsets.only(left: 30, top: 20),
       child: ValueListenableBuilder(
@@ -63,7 +65,7 @@ class VServeryPage1 extends StatelessWidget {
                     groupValue: value,
                     activeColor: Colors.greenAccent,
                     onChanged: (value) {
-                      controller.q1.value = 1;
+                      controller.q1.value = value;
                     },
                   ),
                   const Text("Male")
@@ -76,7 +78,7 @@ class VServeryPage1 extends StatelessWidget {
                     groupValue: value,
                     activeColor: Colors.greenAccent,
                     onChanged: (value) {
-                      controller.q1.value = 2;
+                      controller.q1.value = value;
                     },
                   ),
                   const Text("Female")
@@ -89,7 +91,7 @@ class VServeryPage1 extends StatelessWidget {
                     groupValue: value,
                     activeColor: Colors.greenAccent,
                     onChanged: (value) {
-                      controller.q1.value = 3;
+                      controller.q1.value = value;
                     },
                   ),
                   const Text("I'd rather not say")

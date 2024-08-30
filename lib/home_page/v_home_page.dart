@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_three/home_page/c_home_page.dart';
+import 'package:get/get.dart';
 
 class HomePageView extends StatelessWidget {
   HomePageView({super.key});
-  HomePageController controller = HomePageController();
+  // HomePageController controller = HomePageController();
 
   int input1 = 0;
   int input2 = 0;
   @override
   Widget build(BuildContext context) {
+    HomePageController controller =Get.put(HomePageController());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.greenAccent,

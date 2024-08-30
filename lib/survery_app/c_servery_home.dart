@@ -6,7 +6,6 @@ class ServeryHomeController {
   String q3 = "";
 
   String getGender() {
-    print(q1.value);
     switch (q1.value) {
       case 1:
         return "Male";
@@ -15,7 +14,7 @@ class ServeryHomeController {
       case 3:
         return "I'd rather not say";
       default:
-        return "maledf";
+        return "maled";
     }
   }
 

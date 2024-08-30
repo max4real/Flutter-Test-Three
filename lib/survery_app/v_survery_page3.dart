@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test_three/survery_app/c_servery_home.dart';
 import 'package:flutter_test_three/survery_app/v_survery_result.dart';
 import 'package:get/get.dart';
+
 class VServeryPage3 extends StatelessWidget {
   VServeryPage3({super.key});
 
   @override
   Widget build(BuildContext context) {
-          ServeryHomeController controller = Get.find();
+    ServeryHomeController controller = Get.find();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.greenAccent,
@@ -44,7 +45,7 @@ class VServeryPage3 extends StatelessWidget {
   }
 
   Widget makeTextField() {
-              ServeryHomeController controller = Get.find();
+    ServeryHomeController controller = Get.find();
     return SizedBox(
       height: 200,
       child: TextField(
@@ -56,7 +57,7 @@ class VServeryPage3 extends StatelessWidget {
           filled: true,
         ),
         onChanged: (value) {
-          controller.q3= value;
+          controller.q3 = value;
         },
       ),
     );

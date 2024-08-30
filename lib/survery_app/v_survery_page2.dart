@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test_three/survery_app/c_servery_home.dart';
 import 'package:flutter_test_three/survery_app/v_survery_page3.dart';
 import 'package:get/get.dart';
+
 class VSurveryPage2 extends StatelessWidget {
   VSurveryPage2({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-          ServeryHomeController controller = Get.find();
+    ServeryHomeController controller = Get.find();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.greenAccent,
@@ -48,7 +48,7 @@ class VSurveryPage2 extends StatelessWidget {
   }
 
   Widget makeCheckBox() {
-              ServeryHomeController controller = Get.find();
+    ServeryHomeController controller = Get.find();
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: ValueListenableBuilder(
@@ -78,8 +78,6 @@ class VSurveryPage2 extends StatelessWidget {
                       List<bool?> temp = [...valuelist];
                       temp[1] = value;
                       controller.q2.value = temp;
-                      print(controller.q2.value[1]);
-
                     },
                   ),
                   const Text("C#")
