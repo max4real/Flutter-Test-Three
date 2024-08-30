@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class ServeryHomeController {
+class ServeryHomeController extends GetxController {
   ValueNotifier<int?> q1 = ValueNotifier(1);
   ValueNotifier<List<bool?>> q2 = ValueNotifier([false, false, false]);
   String q3 = "";

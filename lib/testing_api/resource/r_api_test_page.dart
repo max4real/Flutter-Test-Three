@@ -39,7 +39,6 @@ class _ApiTestPageState extends State<ApiTestPage> {
         print(productModel.title);
         temp.add(productModel);
       }
-
       allProducts.value = temp;
     } else {}
   }

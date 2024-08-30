@@ -1,6 +1,4 @@
-import 'dart:ffi';
-
-class Products {
+class ProductsClass {
   String id;
   String title;
   double price;
@@ -9,47 +7,46 @@ class Products {
   String image;
   double rate;
   int count;
+  ProductsClass({
+    required this.id,
+    required this.title,
+    required this.price,
+    required this.description,
+    required this.category,
+    required this.image,
+    required this.rate,
+    required this.count,
+  });
 
-  Products(
-      {required this.id,
-      required this.title,
-      required this.price,
-      required this.description,
-      required this.category,
-      required this.image,
-      required this.rate,
-      required this.count});
-
-  factory Products.fromApi({required Map<String, dynamic> data}) {
-    double rate = -1;
-    int count = -1;
-
+  factory ProductsClass.fromAPI({required Map<String, dynamic> data}) {
+    double rate_ = -1;
+    int count_ = -1;
     if (data["rating"] != null) {
-      rate = double.tryParse(data["rating"]["rate"].toString()) ?? -1;
-      count = int.tryParse(data["rating"]["count"].toString()) ?? -1;
+      rate_ = double.tryParse(data["rating"]["rate"].toString()) ?? -1;
+      count_ = int.tryParse(data["rating"]["count"].toString()) ?? -1;
     }
-    return Products(
-        id: data["id"].toString(),
-        title: data["title"].toString(),
-        price: double.tryParse(data["price"].toString()) ?? -1,
-        description: data["description"].toString(),
-        category: data["category"].toString(),
-        image: data["image"].toString(),
-        rate: rate,
-        count: count);
+
+    return ProductsClass(
+      id: data["id"].toString(),
+      title: data["title"].toString(),
+      price: double.tryParse(data["price"].toString()) ?? -1,
+      description: data["description"].toString(),
+      category: data["category"].toString(),
+      image: data["image"].toString(),
+      rate: rate_,
+      count: count_,
+    );
   }
 }
 
-
 /**
- * {"id":5,
- * "title":"John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
- * "price":695,
- * "description":"From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
- * "category":"jewelery",
- * "image":"https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
- * "rating":{
- *  "rate":4.6,
- *  "count":400}
- * }
+ * {id: 1, 
+ * title: Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops, 
+ * price: 109.95, 
+ * description: Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday, 
+ * category: men's clothing, 
+ * image: https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg, 
+ * rating: 
+ * {  rate: 3.9, 
+ *    count: 120}}
  */
