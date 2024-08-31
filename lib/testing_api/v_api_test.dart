@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_three/testing_api/c_api_test.dart';
+import 'package:flutter_test_three/testing_api/c_cart_controller.dart';
+import 'package:flutter_test_three/testing_api/c_check_out.dart';
 import 'package:flutter_test_three/testing_api/m_product_model.dart';
 import 'package:flutter_test_three/testing_api/v_cart.dart';
 import 'package:flutter_test_three/testing_api/v_each_item_page.dart';
@@ -16,6 +18,10 @@ class _ApiTestState extends State<ApiTest> {
   @override
   Widget build(BuildContext context) {
     ApiTestController controller = Get.put(ApiTestController());
+    CartController cartController =Get.put(CartController());
+    CheckOutController checkoutController =Get.put(CheckOutController());
+
+
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -136,10 +142,26 @@ class _ApiTestState extends State<ApiTest> {
                                       width: 70,
                                       child: ElevatedButton(
                                         onPressed: () {
-                                          controller.inCart.value
-                                              .add(eachproduct);
-
-                                          ///
+                                          bool xAlreadyInCart = false;
+                                          for (var each in cartController.inCart.value) {
+                                            if (each.id == eachproduct.id) {
+                                              xAlreadyInCart = true;
+                                              break;
+                                            }
+                                          }
+                                          if (!xAlreadyInCart) {
+                                            eachproduct.cartQty = 1;
+                                            cartController.inCart.value
+                                                .add(eachproduct);
+                                            Get.snackbar("Message",
+                                                "Item has been successfully added",
+                                                colorText: Colors.white);
+                                          }
+                                          else{
+                                             Get.snackbar("Message",
+                                                "Item is already in the cart",
+                                                colorText: Colors.white);
+                                          }
                                         },
                                         style: ButtonStyle(
                                             backgroundColor:

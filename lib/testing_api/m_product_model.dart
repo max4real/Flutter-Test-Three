@@ -7,6 +7,7 @@ class ProductsClass {
   String image;
   double rate;
   int count;
+  int cartQty;
   ProductsClass({
     required this.id,
     required this.title,
@@ -16,6 +17,7 @@ class ProductsClass {
     required this.image,
     required this.rate,
     required this.count,
+    this.cartQty = 0
   });
 
   factory ProductsClass.fromAPI({required Map<String, dynamic> data}) {

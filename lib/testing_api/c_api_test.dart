@@ -6,7 +6,6 @@ import 'package:get/get_connect/connect.dart';
 class ApiTestController extends GetxController {
   ValueNotifier<List<ProductsClass>> allProducts = ValueNotifier([]);
   ValueNotifier<bool> xFetching = ValueNotifier(false);
-  ValueNotifier<List<ProductsClass>> inCart = ValueNotifier([]);
 
   final String url = "https://fakestoreapi.com/products?limit=5";
   // final String url = "https://fakestoreapi.com/products/category/jewelery";
